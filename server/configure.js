@@ -14,6 +14,24 @@ var path = require('path'),
 var routes = require('./routes');
 
 module.exports = function(app){
+    //Conficurar el motor de plantillas
+    //Handlebars Template Engine
+    //1.- Cargar y configurar el motor de plantillas en la app express
+    app.engine('.hbs', exphdb.create({
+        defaultLayout : 'main', //Plantilla por defecto
+        extname : '.hbs', //Extencion de las vista
+        layoutsDir: path.join(app.get('views'), 'layouts'),
+        partialsDir: [path.join(app.get('views'),'partials')],
+        helpers:{
+            timeago : function(timestamp){
+                return moment(timestamp).startOf('minutes').fromNow();
+            }
+        }
+    }).engine);
+
+    //Establecer a handlebars como el motor de plantillas de trabajo
+    app.set('view engine', '.hbs')
+
     //Agregando los middlewares a la app
     app
         .use(morgan('dev'))
