@@ -22,11 +22,6 @@ app.set('views', path.join(__dirname + '/views'));
 //Aplicando configuraciones generales
 app = config(app);
 
-//Creando rutas de prueba
-app.get('/',(req, res) => {
-    res.send('Hola Pila Completa 2, Viva JavaScript');
-});
-
 //Consultar variables de entorno de la app
 const IP = app.get('ip');
 const PORT = app.get('port')
