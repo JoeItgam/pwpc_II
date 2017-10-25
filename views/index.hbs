@@ -62,9 +62,9 @@
     <div class="panel-body">
         <!-- la variable images proviene del controlador -->
         {{#each images}}
-            <div class="col-md-4" style="padding-bottom: 1 em;">
-                <a href="/images/{{uniqueId}}">
-                    <img src="/public/upload/{{filename}}" alt="{{title}}" style="width: 175px; height: 175px;" class="images-thumbnail">
+            <div class="col-md-4 " style="padding-bottom: 1 em;">
+                <a href="/images/index/{{uniqueId}}">
+                    <img src="/public/upload/{{filename}}" alt="{{title}}" style="width: 175px; height: 175px;" class="img-thumbnail">
                 </a>
             </div>
         {{/each}}

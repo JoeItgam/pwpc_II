@@ -12,9 +12,9 @@ module.exports = function (app) {
 
     //Peticiones get
     //Redirecciona al index
-    router.get('/', homeController.index);
+    router.get(['/','/home','/home/index'], homeController.index);
     //redirecciona al index
-    router.get('/index', homeController.index);
+    //router.get('/index', homeController.index);
     //:imge_id Sirve para tomar decisiones en el action method
     router.get('/images/index/:image_id', imageController.index);
 
