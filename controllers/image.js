@@ -3,8 +3,7 @@
 module.exports = {
     //Action methods
     index: (req, res) =>{
-    res.send(`Se accede al controlador image y se ejecuta la accion con el siguiente parametr:
-              ${req.params.image_id}`)
+    res.render("index");
     },
 
     create: (req, res) =>{

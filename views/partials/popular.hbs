@@ -1,0 +1,19 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">
+            Mas populares
+        </h3>
+    </div>
+    <!-- Body -->
+    <div class="panel-body">
+        <!-- Sentencia de iteracion de HBS -->
+        {{#each sidebar.popular}}
+        <div class="col-md-4 text-center" style="padding-bottom: 0.5em;">
+            <a href="/images/index/{{uniqueId}}">
+                <img src="/public/upload/{{filename}}" alt="Imagen de momento" 
+                     class="img-thumbnail" style="width:75px; height: 75px;">
+            </a>
+        </div>
+        {{/each}}
+    </div>
+</div>

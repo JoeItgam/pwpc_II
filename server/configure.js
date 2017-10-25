@@ -16,7 +16,8 @@ var routes = require('./routes');
 module.exports = function(app){
     //Conficurar el motor de plantillas
     //Handlebars Template Engine
-    //1.- Cargar y configurar el motor de plantillas en la app express
+    //1.- Cargar y configurar el motor de plantillas en la app 
+    var mainLayout = app.get('depmode') === 'local' ? 'main-local' : 'main';
     app.engine('.hbs', exphdb.create({
         defaultLayout : 'main', //Plantilla por defecto
         extname : '.hbs', //Extencion de las vista
