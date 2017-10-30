@@ -3,3 +3,6 @@ node_modules
 
 #Ignorando modulos del Front-end
 public/vendor
+
+#ignore archivos de log en el proyecto
+*.log

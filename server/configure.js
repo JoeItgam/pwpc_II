@@ -46,8 +46,15 @@ module.exports = function(app){
 
         .use(cookieParser('algun-valor-secreto-aqui'))
 
+        //Habilitando a la aplicacion para recibir archivos desde formularios
+        //mediante la encriptacion multipar/form-data
+
+        app.use(multer({
+            dest: path.join(__dirname, '../public/upload/temp')
+        }).any());
+
         //Configurar las rutas de archivos estaticos
-        .use('/public/',express.static(path.join(__dirname, '../public')));
+        app.use('/public/',express.static(path.join(__dirname, '../public')));
 
     app = routes(app);
 
