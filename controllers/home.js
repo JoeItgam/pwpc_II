@@ -1,3 +1,5 @@
+//Importar el helper de sadebar
+var sidebar = require('../helpers/sidebar');
 //Exportando funcionalidades
 module.exports = {
     //action methods
@@ -45,6 +47,9 @@ module.exports = {
                 }
             ]
         };
-        res.render("index", viewModel);
+        //Invocando al helper de sidebar y posteriormente mandando a renderizar la vista
+        sidebar(viewModel, (vm) => {
+            res.render('index', vm);
+        });
     }
 };

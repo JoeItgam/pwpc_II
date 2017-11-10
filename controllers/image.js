@@ -2,18 +2,22 @@
 var md5 = require('md5'),
     fs = require('fs'),
     path = require('path');
+    //Importar el helper de sidebar
+    sidebar = require('../helpers/sidebar');
 
 //Exportando funcionalidad
+
+//likes ficticios
+var count = 12;
 
 module.exports = {
     //Action methods
     index: (req, res) =>{
-
         var viewModel = {
             image: {
                 uniqueId : 1,
                 title : "sample image simple",
-                description : "Awesome description",
+                description : "HTML",
                 filename : "U5.jpg",
                 views : Math.floor(Math.random()*100),
                 likes : Math.floor(Math.random()*50),
@@ -37,8 +41,11 @@ module.exports = {
                     timestamp: Date.now()
                 }
             ]
-        }
-    res.render("image", viewModel);
+        };
+        //Invocando al helper de sidebar y posteriormente mandando a renderizar la vista
+        sidebar(viewModel, (vm) =>{
+            res.render('image', vm);
+        });
     },
 
     create: (req, res) =>{
@@ -90,8 +97,9 @@ module.exports = {
     },
 
     like: (req, res) =>{
-        res.send(`Se accede al controlador image y se ejecuta la accion con like el siguiente parametro;
-        ${req.params.image_id}`)
+        res.json({
+            like: ++count
+        });
     },
     
     comment: (req, res) =>{
